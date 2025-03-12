@@ -14,6 +14,18 @@
   label="Main section",
   class="body-container body-container--home"
 %}
+  
+  
+   {% dnd_area "main" %}
+    {% dnd_module 'name'
+      path='path'
+      width=6
+      offset=0,
+      horizontal_alignment='left'
+    %}
+    {% end_dnd_module %}
+    
+   {% end_dnd_area %}
 
   {# Hero banner #}
 
