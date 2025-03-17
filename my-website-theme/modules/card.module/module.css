@@ -36,4 +36,8 @@
     flex-direction: column;
     overflow: hidden;
   }
+  .card__image {
+    width: 50%;
+    height: 50%;
+  }
 }
