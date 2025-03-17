@@ -25,3 +25,10 @@
   padding: 0 0.7rem;
   width: 100%;
 }
+
+@media screen and (max-width: 480px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+  }
+}
