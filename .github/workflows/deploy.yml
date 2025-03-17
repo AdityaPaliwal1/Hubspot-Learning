@@ -1,0 +1,24 @@
+name: Deploy to HubSpot
+
+on:
+  push:
+    branches:
+      - master  # Change to your default branch if different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install HubSpot CLI
+        run: npm install -g @hubspot/cli
+
+      - name: Authenticate with HubSpot
+        run: |
+          echo "${{ secrets.HUBSPOT_ACCESS_TOKEN }}" | hs auth personal-access-key --account 242241986
+
+      - name: Upload Theme to HubSpot
+        run: hs upload my-website-theme new-website-theme
