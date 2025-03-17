@@ -3,7 +3,7 @@
     "label": "Card",
     "name": "card",
     "type": "group",
-     "tab": "CONTENT",
+    "tab": "CONTENT",
     "occurrence": {
       "default": 3,
       "min": 1,
@@ -72,56 +72,17 @@
           }
         ]
       }
-    ],
-    "default": [
-      {
-        "image": {
-          "loading": "lazy"
-        },
-        "text": "<h3>Card 2</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for your website or it can pay for a lot more.</p>",
-        "button": {
-          "text": "Find More",
-          "url": "",
-          "target": "_self",
-          "rel": "noopener noreferrer"
-        }
-      },
-      {
-        "image": {
-          "loading": "lazy"
-        },
-        "text": "<h3>Card 3</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for your website or it can pay for a lot more.</p>",
-        "button": {
-          "text": "Find More",
-          "url": "",
-          "target": "_self",
-          "rel": "noopener noreferrer"
-        }
-      },
-      {
-        "image": {
-          "loading": "lazy"
-        },
-        "text": "<h3>Card 4</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for your website or it can pay for a lot more.</p>",
-        "button": {
-          "text": "Find More",
-          "url": "",
-          "target": "_self",
-          "rel": "noopener noreferrer"
-        }
-      }
     ]
   },
-
   {
     "label": "Card-Style",
-    "name": "card",
+    "name": "card_style",
     "type": "group",
     "tab": "STYLE",
     "children": [
       {
         "label": "Image-Style",
-        "name": "image",
+        "name": "image_style",
         "type": "group",
         "children": [
           {
@@ -144,18 +105,18 @@
       },
       {
         "label": "Content-Style",
-        "name": "content",
+        "name": "content_style",
         "type": "group",
         "children": [
           {
             "label": "Background-style",
-            "name": "background",
+            "name": "background_style",
             "type": "group",
             "children": [
               {
                 "label": "Background type",
                 "name": "background_type",
-                "id": "styles.card.background.background_type",
+                "id": "styles.card_style.background_style.background_type",
                 "type": "choice",
                 "choices": [
                   ["none", "None"],
@@ -171,7 +132,7 @@
                 "name": "color",
                 "type": "color",
                 "visibility": {
-                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_field": "styles.card_style.background_style.background_type",
                   "controlling_value_regex": "color",
                   "operator": "EQUAL"
                 }
@@ -181,7 +142,7 @@
                 "name": "gradient",
                 "type": "gradient",
                 "visibility": {
-                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_field": "styles.card_style.background_style.background_type",
                   "controlling_value_regex": "gradient",
                   "operator": "EQUAL"
                 }
@@ -191,7 +152,7 @@
                 "name": "image",
                 "type": "backgroundimage",
                 "visibility": {
-                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_field": "styles.card_style.background_style.background_type",
                   "controlling_value_regex": "image",
                   "operator": "EQUAL"
                 }
@@ -242,18 +203,18 @@
       },
       {
         "label": "Button-Style",
-        "name": "button",
+        "name": "button_style",
         "type": "group",
-        "children":[
+        "children": [
           {
             "label": "Background-style",
-            "name": "background",
+            "name": "background_style",
             "type": "group",
-            "children" :[
+            "children": [
               {
                 "label": "Background type",
                 "name": "background_type",
-                "id": "styles.card.button.background.background_type",
+                "id": "styles.card_style.button_style.background_style.background_type",
                 "type": "choice",
                 "choices": [
                   ["none", "None"],
@@ -269,7 +230,7 @@
                 "name": "color",
                 "type": "color",
                 "visibility": {
-                  "controlling_field": "styles.card.button.background.background_type",
+                  "controlling_field": "styles.card_style.button_style.background_style.background_type",
                   "controlling_value_regex": "color",
                   "operator": "EQUAL"
                 }
@@ -279,7 +240,7 @@
                 "name": "gradient",
                 "type": "gradient",
                 "visibility": {
-                  "controlling_field": "styles.card.button.background.background_type",
+                  "controlling_field": "styles.card_style.button_style.background_style.background_type",
                   "controlling_value_regex": "gradient",
                   "operator": "EQUAL"
                 }
@@ -289,7 +250,7 @@
                 "name": "image",
                 "type": "backgroundimage",
                 "visibility": {
-                  "controlling_field": "styles.card.button.background.background_type",
+                  "controlling_field": "styles.card_style.button_style.background_style.background_type",
                   "controlling_value_regex": "image",
                   "operator": "EQUAL"
                 }
