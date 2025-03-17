@@ -1,86 +1,86 @@
-{# Module styles #} {% require_css %}
-<style>
-  {% scope_css %}
+  {# Module styles #} {% require_css %}
+  <style>
+    {% scope_css %}
 
-  {# Image #}
-  {% if module.styles.image.corner.radius >= 0 %}
-    .card__image {
-      border-radius: {{ module.styles.image.corner.radius ~ "px" }};
+    {# Image #}
+    {% if module.styles.image.corner.radius >= 0 %}
+      .card__image {
+        border-radius: {{ module.styles.image.corner.radius ~ "px" }};
+      }
+    {% endif %}
+
+    {# Card Styling #}
+    .card {
+      {% if module.styles.card.background.background_type == "color" and module.styles.card.background.color.color %}
+        background-color: rgba({{ module.styles.card.background.color.color|convert_rgb }}, {{ module.styles.card.background.color.opacity / 100 }});
+      {% elif module.styles.card.background.background_type == "gradient" %}
+        background: {{ module.styles.card.background.gradient.css }};
+      {% elif module.styles.card.background.background_type == "image" %}
+        {{ module.styles.card.background.image.css }}
+      {% endif %}
+      {{ module.styles.card.border.border.css }}
+      {% if module.styles.card.corner.radius >= 0 %}
+        border-radius: {{ module.styles.card.corner.radius ~ "px" }};
+      {% endif %}
+      {{ module.styles.card.spacing.spacing.css }}
+      padding: 20px;
+
     }
-  {% endif %}
 
-  {# Card Styling #}
-  .card {
-    {% if module.styles.card.background.background_type == "color" and module.styles.card.background.color.color %}
-      background-color: rgba({{ module.styles.card.background.color.color|convert_rgb }}, {{ module.styles.card.background.color.opacity / 100 }});
-    {% elif module.styles.card.background.background_type == "gradient" %}
-      background: {{ module.styles.card.background.gradient.css }};
-    {% elif module.styles.card.background.background_type == "image" %}
-      {{ module.styles.card.background.image.css }}
-    {% endif %}
-    {{ module.styles.card.border.border.css }}
-    {% if module.styles.card.corner.radius >= 0 %}
-      border-radius: {{ module.styles.card.corner.radius ~ "px" }};
-    {% endif %}
-    {{ module.styles.card.spacing.spacing.css }}
-    padding: 20px;
+    {# Button Styling #}
+    .card__button {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color:rgb(24, 77, 146);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      margin-left: 10px;
+      font-weight: bold;
+    }
 
-  }
+    .card__button:hover {
+      background-color: #0056b3;
+    }
 
-  {# Button Styling #}
-  .card__button {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color:rgb(24, 77, 146);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-weight: bold;
-  }
-
-  .card__button:hover {
-    background-color: #0056b3;
-  }
-
-  {% end_scope_css %}
-</style>
-{% end_require_css %} {# Cards Section #}
-<div class="cards">
-  {# Loop through each card in the repeater #} {% for card in module.card %}
-  <section class="cards__card card">
-    {# Image Section #} {% if card.image.src %} {% set sizeAttrs = 'width="{{
-    card.image.width|escape_attr }}" height="{{ card.image.height|escape_attr
-    }}"' %} {% if card.image.size_type == "auto" %} {% set sizeAttrs =
-    'style="max-width: 100%; height: auto;"' %} {% elif card.image.size_type ==
-    "auto_custom_max" %} {% set sizeAttrs = 'width="{{
-    card.image.max_width|escape_attr }}" height="{{
-    card.image.max_height|escape_attr }}" style="max-width: 100%; max-height:
-    auto;"' %} {% endif %} {% set loadingAttr = card.image.loading != "disabled"
-    ? 'loading="{{ card.image.loading }}"' : "" %}
-    <img
-      class="card__image"
-      src="{{ card.image.src|escape_url }}"
-      alt="{{ card.image.alt|escape_attr }}"
-      {{
-      loadingAttr
-      }}
-      {{
-      sizeAttrs
-      }}
-    />
-    {% endif %} {# Card Text #} {% if card.text %}
-    <div class="card__text">{{ card.text|sanitize_html }}</div>
-    {% endif %} {# Button Section - Ensuring Button is Always Displayed #}
-    <a
-      class="card__button button"
-      href="{{ card.button.url|default('#')|escape_url }}"
-      target="{{ card.button.target|default('_self') }}"
-      rel="{{ card.button.rel|default('noopener noreferrer') }}"
-    >
-      {{ card.button.text|default('Found More')|escape }}
-    </a>
-  </section>
-  {% endfor %}
-</div>
+    {% end_scope_css %}
+  </style>
+  {% end_require_css %} {# Cards Section #}
+  <div class="cards">
+    {# Loop through each card in the repeater #} {% for card in module.card %}
+    <section class="cards__card card">
+      {# Image Section #} {% if card.image.src %} {% set sizeAttrs = 'width="{{
+      card.image.width|escape_attr }}" height="{{ card.image.height|escape_attr
+      }}"' %} {% if card.image.size_type == "auto" %} {% set sizeAttrs =
+      'style="max-width: 100%; height: auto;"' %} {% elif card.image.size_type ==
+      "auto_custom_max" %} {% set sizeAttrs = 'width="{{
+      card.image.max_width|escape_attr }}" height="{{
+      card.image.max_height|escape_attr }}" style="max-width: 100%; max-height:
+      auto;"' %} {% endif %} {% set loadingAttr = card.image.loading != "disabled"
+      ? 'loading="{{ card.image.loading }}"' : "" %}
+      <img
+        class="card__image"
+        src="{{ card.image.src|escape_url }}"
+        alt="{{ card.image.alt|escape_attr }}"
+        {{
+        loadingAttr
+        }}
+        {{
+        sizeAttrs
+        }}
+      />
+      {% endif %} {# Card Text #} {% if card.text %}
+      <div class="card__text">{{ card.text|sanitize_html }}</div>
+      {% endif %} {# Button Section - Ensuring Button is Always Displayed #}
+      <a
+        class="card__button button"
+        href="{{ card.button.url|default('#')|escape_url }}"
+        target="{{ card.button.target|default('_self') }}"
+        rel="{{ card.button.rel|default('noopener noreferrer') }}"
+      >
+        {{ card.button.text|default('Found More')|escape }}
+      </a>
+    </section>
+    {% endfor %}
+  </div>
