@@ -50,8 +50,8 @@
           {
             "label": "URL",
             "name": "url",
-            "type": "url",
-            "default": "#"
+            "type": "text",
+            "default": ""
           },
           {
             "label": "Target",
@@ -80,7 +80,7 @@
         "text": "<h3>Card 2</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for your website or it can pay for a lot more.</p>",
         "button": {
           "text": "Find More",
-          "url": "#",
+          "url": "",
           "target": "_self",
           "rel": "noopener noreferrer"
         }
@@ -92,7 +92,7 @@
         "text": "<h3>Card 3</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for your website or it can pay for a lot more.</p>",
         "button": {
           "text": "Find More",
-          "url": "#",
+          "url": "",
           "target": "_self",
           "rel": "noopener noreferrer"
         }
@@ -104,7 +104,7 @@
         "text": "<h3>Card 4</h3><p>Contextual advertising can be profitable. It can either pay for your hosting and maintenance costs for your website or it can pay for a lot more.</p>",
         "button": {
           "text": "Find More",
-          "url": "#",
+          "url": "",
           "target": "_self",
           "rel": "noopener noreferrer"
         }

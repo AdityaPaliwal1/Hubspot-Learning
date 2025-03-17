@@ -75,11 +75,11 @@
     {% endif %} {# Button Section - Ensuring Button is Always Displayed #}
     <a
       class="card__button button"
-      href="{{ card.button.url|escape_url }}"
-      target="{{ card.button.target }}"
-      rel="{{ card.button.rel}}"
+      href="{{ card.button.url|default('#')|escape_url }}"
+      target="{{ card.button.target|default('_self') }}"
+      rel="{{ card.button.rel|default('noopener noreferrer') }}"
     >
-      {{ card.button.text|escape }}
+      {{ card.button.text|default('Found More')|escape }}
     </a>
   </section>
   {% endfor %}
