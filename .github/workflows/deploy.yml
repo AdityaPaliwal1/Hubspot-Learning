@@ -3,7 +3,7 @@ name: Deploy to HubSpot
 on:
   push:
     branches:
-      - master  # Change to your default branch
+      - master  # Change to your main branch if needed
 
 jobs:
   deploy:
@@ -16,19 +16,14 @@ jobs:
       - name: Install HubSpot CLI
         run: npm install -g @hubspot/cli
 
-      - name: Initialize HubSpot CLI
-        run: hs init --config hubspot.config.yml
-
-      - name: Configure HubSpot Authentication
+      - name: Create HubSpot Config File
         run: |
-          cat <<EOF > hubspot.config.yml
-          defaultPortal: my-hubspot
-          portals:
-            my-hubspot:
-              authType: personalaccesskey
-              personalAccessKey: ${{ secrets.HUBSPOT_PERSONAL_ACCESS_KEY }}
-              portalId: ${{ secrets.HUBSPOT_ACCOUNT_ID }}
-          EOF
+          echo "defaultPortal: my-hubspot" > hubspot.config.yml
+          echo "portals:" >> hubspot.config.yml
+          echo "  my-hubspot:" >> hubspot.config.yml
+          echo "    authType: personalaccesskey" >> hubspot.config.yml
+          echo "    personalAccessKey: ${{ secrets.HUBSPOT_PERSONAL_ACCESS_KEY }}" >> hubspot.config.yml
+          echo "    portalId: ${{ secrets.HUBSPOT_ACCOUNT_ID }}" >> hubspot.config.yml
 
       - name: Verify Config File
         run: cat hubspot.config.yml  # Debugging step
