@@ -3,6 +3,7 @@
     "label": "Card",
     "name": "card",
     "type": "group",
+     "tab": "CONTENT",
     "occurrence": {
       "default": 3,
       "min": 1,
@@ -108,6 +109,194 @@
           "target": "_self",
           "rel": "noopener noreferrer"
         }
+      }
+    ]
+  },
+
+  {
+    "label": "Card-Style",
+    "name": "card",
+    "type": "group",
+    "tab": "STYLE",
+    "children": [
+      {
+        "label": "Image-Style",
+        "name": "image",
+        "type": "group",
+        "children": [
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Radius",
+                "name": "radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Content-Style",
+        "name": "content",
+        "type": "group",
+        "children": [
+          {
+            "label": "Background-style",
+            "name": "background",
+            "type": "group",
+            "children": [
+              {
+                "label": "Background type",
+                "name": "background_type",
+                "id": "styles.card.background.background_type",
+                "type": "choice",
+                "choices": [
+                  ["none", "None"],
+                  ["color", "Color"],
+                  ["gradient", "Gradient"],
+                  ["image", "Image"]
+                ],
+                "display": "radio",
+                "default": "none"
+              },
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "visibility": {
+                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_value_regex": "color",
+                  "operator": "EQUAL"
+                }
+              },
+              {
+                "label": "Gradient",
+                "name": "gradient",
+                "type": "gradient",
+                "visibility": {
+                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_value_regex": "gradient",
+                  "operator": "EQUAL"
+                }
+              },
+              {
+                "label": "Image",
+                "name": "image",
+                "type": "backgroundimage",
+                "visibility": {
+                  "controlling_field": "styles.card.background.background_type",
+                  "controlling_value_regex": "image",
+                  "operator": "EQUAL"
+                }
+              }
+            ]
+          },
+          {
+            "label": "Border",
+            "name": "border",
+            "type": "group",
+            "children": [
+              {
+                "label": "Border",
+                "name": "border",
+                "type": "border"
+              }
+            ]
+          },
+          {
+            "label": "Corner",
+            "name": "corner",
+            "type": "group",
+            "children": [
+              {
+                "label": "Radius",
+                "name": "radius",
+                "type": "number",
+                "display": "text",
+                "max": 100,
+                "step": 1,
+                "suffix": "px"
+              }
+            ]
+          },
+          {
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "group",
+            "children": [
+              {
+                "label": "Spacing",
+                "name": "spacing",
+                "type": "spacing"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Button-Style",
+        "name": "button",
+        "type": "group",
+        "children":[
+          {
+            "label": "Background-style",
+            "name": "background",
+            "type": "group",
+            "children" :[
+              {
+                "label": "Background type",
+                "name": "background_type",
+                "id": "styles.card.button.background.background_type",
+                "type": "choice",
+                "choices": [
+                  ["none", "None"],
+                  ["color", "Color"],
+                  ["gradient", "Gradient"],
+                  ["image", "Image"]
+                ],
+                "display": "radio",
+                "default": "none"
+              },
+              {
+                "label": "Color",
+                "name": "color",
+                "type": "color",
+                "visibility": {
+                  "controlling_field": "styles.card.button.background.background_type",
+                  "controlling_value_regex": "color",
+                  "operator": "EQUAL"
+                }
+              },
+              {
+                "label": "Gradient",
+                "name": "gradient",
+                "type": "gradient",
+                "visibility": {
+                  "controlling_field": "styles.card.button.background.background_type",
+                  "controlling_value_regex": "gradient",
+                  "operator": "EQUAL"
+                }
+              },
+              {
+                "label": "Image",
+                "name": "image",
+                "type": "backgroundimage",
+                "visibility": {
+                  "controlling_field": "styles.card.button.background.background_type",
+                  "controlling_value_regex": "image",
+                  "operator": "EQUAL"
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   }
