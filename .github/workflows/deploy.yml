@@ -18,7 +18,7 @@ jobs:
 
       - name: Authenticate with HubSpot
         run: |
-          echo "${{ secrets.HUBSPOT_ACCESS_TOKEN }}" | hs auth personal-access-key --account 242241986
+          echo "${{ secrets.HUBSPOT_ACCESS_TOKEN }}"
 
       - name: Upload Theme to HubSpot
         run: hs upload my-website-theme new-website-theme
