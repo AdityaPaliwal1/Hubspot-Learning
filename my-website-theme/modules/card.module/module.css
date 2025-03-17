@@ -26,9 +26,16 @@
   width: 100%;
 }
 
+
+
+.card__button:hover {
+  background-color: #0056b3;
+}
+
 @media screen and (max-width: 480px) {
   .cards {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
 }
