@@ -3,7 +3,7 @@ name: Deploy to HubSpot
 on:
   push:
     branches:
-      - master  # Change to your default branch if different
+      - master  # Change to your main branch if needed
 
 jobs:
   deploy:
@@ -16,9 +16,15 @@ jobs:
       - name: Install HubSpot CLI
         run: npm install -g @hubspot/cli
 
-      - name: Authenticate with HubSpot
+      - name: Create HubSpot Config File
         run: |
-          echo "${{ secrets.HUBSPOT_ACCESS_TOKEN }}"
+          mkdir -p ~/.config/hubspot
+          echo "defaultPortal: my-hubspot" > ~/.config/hubspot/hubspot.config.yml
+          echo "portals:" >> ~/.config/hubspot/hubspot.config.yml
+          echo "  my-hubspot:" >> ~/.config/hubspot/hubspot.config.yml
+          echo "    authType: personalaccesskey" >> ~/.config/hubspot/hubspot.config.yml
+          echo "    personalAccessKey: ${{ secrets.HUBSPOT_ACCESS_TOKEN }}" >> ~/.config/hubspot/hubspot.config.yml
+          echo "    portalId: ${{ secrets.HUBSPOT_ACCOUNT_ID }}" >> ~/.config/hubspot/hubspot.config.yml
 
       - name: Upload Theme to HubSpot
         run: hs upload my-website-theme new-website-theme
