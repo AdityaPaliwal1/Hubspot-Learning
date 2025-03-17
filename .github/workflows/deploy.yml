@@ -17,7 +17,7 @@ jobs:
         run: npm install -g @hubspot/cli
 
       - name: Initialize HubSpot CLI
-        run: hs init --config hubspot.config.yml --no-interactive
+        run: hs init --config hubspot.config.yml
 
       - name: Configure HubSpot Authentication
         run: |
@@ -26,7 +26,7 @@ jobs:
           portals:
             my-hubspot:
               authType: personalaccesskey
-              personalAccessKey: ${{ secrets.HUBSPOT_ACCESS_TOKEN }}
+              personalAccessKey: ${{ secrets.HUBSPOT_PERSONAL_ACCESS_KEY }}
               portalId: ${{ secrets.HUBSPOT_ACCOUNT_ID }}
           EOF
 
