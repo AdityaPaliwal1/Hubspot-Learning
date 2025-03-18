@@ -5,7 +5,7 @@
     "type": "group",
     "tab": "CONTENT",
     "occurrence": {
-      "default": 3,
+      "default": 3, 
       "min": 1,
       "sorting_label_field": "card.title"
     },
