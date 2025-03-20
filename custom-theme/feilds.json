@@ -1,0 +1,23 @@
+[
+    {
+      "name": "primary_color",
+      "label": "Primary Color",
+      "type": "color",
+      "default": "#0073e6"
+    },
+    {
+      "name": "secondary_color",
+      "label": "Secondary Color",
+      "type": "color",
+      "default": "#ff6600"
+    },
+    {
+      "name": "font_family",
+      "label": "Font Family",
+      "type": "font",
+      "default": {
+        "font": "Arial"
+      }
+    }
+  ]
+  

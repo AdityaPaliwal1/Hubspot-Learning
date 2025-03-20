@@ -1,0 +1,25 @@
+<!--
+  templateType: page
+  label: Main Page
+  isAvailableForNewContent: true
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  {{ standard_header_includes }}
+  <title>{{ page_meta.title }}</title>
+</head>
+<body>
+  {% dnd_area "main_content" %}
+    {% dnd_section %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module path="@hubspot/rich_text" %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+  {{ standard_footer_includes }}
+</body>
+</html>

@@ -8,6 +8,7 @@
 {% dnd_section
   background_color={{ context.background_color or "#f8fafc" }},
   vertical_alignment="MIDDLE"
+  gap=6
 %}
   {% dnd_module
     path="@hubspot/linked_image",
@@ -17,7 +18,7 @@
       "max_height": context.image_height or 451,
       "max_width": context.image_width or 605,
       "size_type": "auto_custom_max",
-      "src": context.image or get_asset_url("../images/team-image.png")
+      "src": context.image or get_asset_url("../images/team-image.jpg")
     },
     offset=0,
     width=6

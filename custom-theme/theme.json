@@ -1,0 +1,16 @@
+{
+    "name": "My Custom Theme",
+    "label": "My Custom Theme",
+    "screenshot_path": "../images/theme-preview.png",
+    "version": "1.0.0",
+    "author": {
+      "name": "Your Name",
+      "email": "your-email@example.com"
+    },
+    "global_content": {
+      "header": "../sections/header.html",
+      "footer": "../sections/footer.html"
+    },
+    "is_available_for_new_content": true
+  }
+  
